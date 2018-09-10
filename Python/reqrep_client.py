@@ -43,7 +43,7 @@ def subscribe_and_stream():
         print "Sending request "
         socket.send ("request")
         #  Get the reply.
-        message = socket.recv(zmq.NOBLOCK)
+        message = socket.recv()
         print "Received reply ", "[", message, "]"
 
         doc.add_next_tick_callback(partial(update, message))
