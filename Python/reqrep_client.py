@@ -12,7 +12,7 @@ from bokeh.plotting import curdoc, figure
 
 from tornado import gen
 
-port = "5556"
+port = "12346"
 TIMEOUT = 10000
 # this must only be modified from a Bokeh session callback
 source = ColumnDataSource(dict(time=[], x=[], y=[], z=[]))
