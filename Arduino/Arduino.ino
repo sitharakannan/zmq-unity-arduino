@@ -17,9 +17,9 @@ void setup() {
 // Run forever
 void loop() {
   sendData("Hello World!");
-  //int sensorValue = analogRead(A0);
+  int sensorValue = analogRead(A0);
   //randNumber = random(360);
-  sendData(String(randNumber));
+  sendData(String(sensorValue));
   delay(2);
   // Choose your delay having in mind your ReadTimeout in Unity3D
 }
