@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Globalization;
 
 /*
 This script is used to read all the data coming from the device. For instance,
@@ -38,12 +39,14 @@ public class wrmhlRead : MonoBehaviour {
 		myDevice.set (portName, baudRate, ReadTimeout, QueueLenght); // This method set the communication with the following vars;
 		//                              Serial Port, Baud Rates, Read Timeout and QueueLenght.
 		myDevice.connect (); // This method open the Serial communication with the vars previously given.
-	}
+    }
 
 	// Update is called once per frame
 	void Update () {
 		print (myDevice.readQueue () ); // myDevice.read() return the data coming from the device using thread.
-	}
+        var n = float.Parse(myDevice.readQueue(), CultureInfo.InvariantCulture.NumberFormat);
+        transform.position = new Vector3(n, transform.position.y, transform.position.z);
+    }
 
 	void OnApplicationQuit() { // close the Thread and Serial Port
 		myDevice.close();
