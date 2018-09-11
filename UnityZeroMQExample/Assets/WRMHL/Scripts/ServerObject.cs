@@ -35,6 +35,7 @@ public class NetMqPublisher
                 _contactWatch.Restart();
                 var response = _messageDelegate(message);
                 server.SendFrame(response);
+                Thread.Sleep(100);
             }
         }
         NetMQConfig.Cleanup();
