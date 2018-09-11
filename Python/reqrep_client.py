@@ -39,15 +39,20 @@ def update(msgData):
     source.stream(new_data,100)
 
 def subscribe_and_stream():
-    while True:
-        print "Sending request "
-        socket.send ("request")
-        #  Get the reply.
-        message = socket.recv()
-        print "Received reply ", "[", message, "]"
+    try:
+        while True:
+            print "Sending request "
+            socket.send ("request")
+            #  Get the reply.
+            message = socket.recv()
+            print "Received reply: ", message
+            doc.add_next_tick_callback(partial(update, message))
+    except KeyboardInterrupt:
+        while not socket_sub.closed:
+            print("close the socket!")
+            socket_sub.close()
+            sys.exit(0)
 
-        doc.add_next_tick_callback(partial(update, message))
-        #time.sleep(0.5)
 
 fig = figure(plot_width=1000, plot_height=750)
 fig.line(source=source, x='time', y='x', line_width=2, alpha=0.85, color='red')
