@@ -47,11 +47,11 @@ def subscribe_and_stream():
         print "Received reply ", "[", message, "]"
 
         doc.add_next_tick_callback(partial(update, message))
-        time.sleep(0.5)
+        #time.sleep(0.5)
 
 fig = figure(plot_width=1000, plot_height=750)
 fig.line(source=source, x='time', y='x', line_width=2, alpha=0.85, color='red')
-fig.line(source=source, x='time', y='y', line_width=2, alpha=0.85, color='green')
+fig.line(source=source, x='time', y='y', line_width=4, alpha=0.5, color='green')
 fig.line(source=source, x='time', y='z', line_width=2, alpha=0.85, color='blue')
 doc.add_root(fig)
 
