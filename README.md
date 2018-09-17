@@ -10,4 +10,3 @@ Run "bokeh serve --show reqrep_client.py" to plot values received from ServerObj
 
 UnityZeroMQExample contains all Assets and codes for Unity, cube object scripts
 
-TODO: Honestly I dont know if we require Wrmhl Unity here of if all required packages are already in UnityZeroMQExample folder
